@@ -10,9 +10,21 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-img{
+/* img{
   display: block;
   margin: 0 auto;
+} */
+
+.player1Cards{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+.player2Cards{
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 

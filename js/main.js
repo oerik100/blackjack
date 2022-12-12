@@ -13,13 +13,13 @@ fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
 
 
 document.querySelector('#drawCards').addEventListener('click', getFetch)
-document.querySelector('#hitMe').addEventListener('click', hitMeOnce)
-document.querySelector('#stay').addEventListener('click', stayRightThere)
+// document.querySelector('#hitMe').addEventListener('click', hitMeOnce)
+// document.querySelector('#stay').addEventListener('click', stayRightThere)
 
 
 function getFetch(){
   
-  const url = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`
+  const url = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=52`
 
   fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -42,38 +42,44 @@ function getFetch(){
     }
 
 
-    function hitMeOnce() {
-      const urlNew = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`
+  //   function hitMeOnce() {
+  //     const urlNew = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`
 
 
-  fetch(urlNew)
-      .then(res => res.json())
-      .then(data => {
-        // let hitMeCardOne = Number(cardValue(data.cards[0].value))
-        document.querySelector('#hitMeCardOne').src = data.cards[0].image
-      })
-    };
+  // fetch(urlNew)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       let val3 = Number(cardValue(data.cards[3].value))
+  //       // let hitMeCardOne = Number(cardValue(data.cards[0].value))
+  //       document.querySelector('#hitMeCardOne').src = data.cards[0].image
+  //       if(val1 + val2 + val3 < 21) {
+  //         document.querySelector('#score').innerText = val1 + val2 + val3
+  //       }else {
+  //         document.querySelector('#score').innerText = 'BUST'
+  //       }
+  //     })
+  //   };
 
-    function stayRightThere() {
-      const url = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`
+  //   function stayRightThere() {
+  //     const url = `https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=4`
       
-      fetch(url)
-      .then(res => res.json()) // parse response as JSON
-      .then(data => {
-      document.querySelector('#dealer1_2').src = data.cards[3].image
-      })
-    }
+  //     fetch(url)
+  //     .then(res => res.json()) // parse response as JSON
+  //     .then(data => {
+  //     document.querySelector('#dealer1_2').src = data.cards[3].image
+  //     })
+  //   }
 
 
     function cardValue(val){
       if(val === "ACE"){
-        return 14
-      }else if (val === "KING"){
-        return 13
-      }else if(val === "QUEEN"){
-        return 12
-      }else if(val === "JACK"){
         return 11
+      }else if (val === "KING"){
+        return 10
+      }else if(val === "QUEEN"){
+        return 10
+      }else if(val === "JACK"){
+        return 10
       }else{
         return val
       }
