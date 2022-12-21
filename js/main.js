@@ -24,58 +24,6 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
-        let card0 = data.cards[0]
-        let card1 = data.cards[1]
-        let card2 = data.cards[2]
-        let card3 = data.cards[3]
-        let card4 = data.cards[4]
-        let card5 = data.cards[5]
-        let card6 = data.cards[6]
-        let card7 = data.cards[7]
-        let card8 = data.cards[8]
-        let card9 = data.cards[9]
-        let card10 = data.cards[10]
-        let card11 = data.cards[11]
-        let card12 = data.cards[12]
-        let card13 = data.cards[13]
-        let card14 = data.cards[14]
-        let card15 = data.cards[15]
-        let card16 = data.cards[16]
-        let card17 = data.cards[17]
-        let card18 = data.cards[18]
-        let card19 = data.cards[19]
-        let card20 = data.cards[20]
-        let card21 = data.cards[21]
-        let card22 = data.cards[22]
-        let card23 = data.cards[23]
-        let card24 = data.cards[24]
-        let card25 = data.cards[25]
-        let card26 = data.cards[26]
-        let card27 = data.cards[27]
-        let card28 = data.cards[28]
-        let card29 = data.cards[29]
-        let card30 = data.cards[30]
-        let card31 = data.cards[31]
-        let card32 = data.cards[32]
-        let card33 = data.cards[33]
-        let card34 = data.cards[34]
-        let card35 = data.cards[35]
-        let card36 = data.cards[36]
-        let card37 = data.cards[37]
-        let card38 = data.cards[38]
-        let card39 = data.cards[39]
-        let card40 = data.cards[40]
-        let card41 = data.cards[41]
-        let card42 = data.cards[42]
-        let card43 = data.cards[43]
-        let card44 = data.cards[44]
-        let card45 = data.cards[45]
-        let card46 = data.cards[46]
-        let card47 = data.cards[47]
-        let card48 = data.cards[48]
-        let card49 = data.cards[49]
-        let card50 = data.cards[50]
-        let card51 = data.cards[51]
 
 
         // let val1 = Number(cardValue(data.cards[0].value))
@@ -92,10 +40,17 @@ function getFetch(){
         // }
         // document.querySelector('#dealer1_2').src = data.cards[3].image.add('hidden')
           document.querySelector('#hitMe').addEventListener('click', hitMeOnce)
+          let curNum = 4
           function hitMeOnce() {
-          document.querySelector('#hitMeCardOne').src = card51.image
-          console.log(card51.image)
+          // let hitCount = (data.cards.length - 1)
+          // document.querySelector('#hitMeCardOne').src = data.cards[hitCount].image
+
+          //code below works, but it doesn't increment as it should.  If the second i statement is set to 52 then it runs until it hits the end, grabs that card and then displays it.  I need it to grab the next one every time, and then it needs to remember where it ended
+          
+          document.querySelector('#hitMeCardOne').src = data.cards[curNum].image
+          return curNum = curNum + 1
         }
+        console.log(curNum)
 
 
         
