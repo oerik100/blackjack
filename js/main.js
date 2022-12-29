@@ -13,7 +13,6 @@ fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
 
 
 document.querySelector('#drawCards').addEventListener('click', getFetch)
-// document.querySelector('#hitMe').addEventListener('click', hitMeOnce)
 // document.querySelector('#stay').addEventListener('click', stayRightThere)
 
 
@@ -24,8 +23,6 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
-
-
         // let val1 = Number(cardValue(data.cards[0].value))
         // let val2 = Number(cardValue(data.cards[1].value))
         document.querySelector('#player1').src = data.cards[0].image
@@ -48,12 +45,39 @@ function getFetch(){
           //code below works, but it doesn't increment as it should.  If the second i statement is set to 52 then it runs until it hits the end, grabs that card and then displays it.  I need it to grab the next one every time, and then it needs to remember where it ended
           
           document.querySelector('#hitMeCardOne').src = data.cards[curNum].image
+          document.querySelector('#hitMeTwo').classList.toggle('hidden')
           return curNum = curNum + 1
+          
         }
         console.log(curNum)
 
+        
+        document.querySelector('#hitMeTwo').addEventListener('click', hitMeAgain)
+        function hitMeAgain(){
+          document.querySelector('#hitMeCardTwo').src = data.cards[curNum].image
+          document.querySelector('#hitMeTwo').classList.toggle('hidden')
+          document.querySelector('#hitMeThree').classList.toggle('hidden')
+          
+          return curNum = curNum + 1
+        }
+
+        document.querySelector('#hitMeThree').addEventListener('click', hitMeThreeTimes)
+        function hitMeThreeTimes(){
+          document.querySelector('#hitMeCardThree').src = data.cards[curNum].image
+          document.querySelector('#hitMeThree').classList.toggle('hidden')
+          document.querySelector('#hitMeFour').classList.toggle('hidden')
+          return curNum = curNum + 1
+        }
+
+        document.querySelector('#hitMeFour').addEventListener('click', hitMeFourTimes)
+        function hitMeFourTimes(){
+          document.querySelector('#hitMeCardFour').src = data.cards[curNum].image
+          document.querySelector('#hitMeFour').classList.toggle('hidden')
+          return curNum = curNum + 1
+        }
 
         
+      
 
         
 

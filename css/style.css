@@ -27,9 +27,9 @@
   flex-wrap: nowrap;
 }
 
-/* .hidden{
-	display: inherit;
-} */
+.hidden{
+	display: none;
+}
 
 
 /******************************************
