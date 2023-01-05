@@ -36,6 +36,7 @@ function getFetch(){
         //   document.querySelector('#score').innerText = 'BUST'
         // }
         // document.querySelector('#dealer1_2').src = data.cards[3].image.add('hidden')
+          document.querySelector('#hitMe').classList.toggle('hidden')
           document.querySelector('#hitMe').addEventListener('click', hitMeOnce)
           let curNum = 4
           function hitMeOnce() {
@@ -46,6 +47,7 @@ function getFetch(){
           
           document.querySelector('#hitMeCardOne').src = data.cards[curNum].image
           document.querySelector('#hitMeTwo').classList.toggle('hidden')
+          document.querySelector('#hitMe').classList.toggle('hidden')
           return curNum = curNum + 1
           
         }
