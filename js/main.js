@@ -29,9 +29,24 @@ function getFetch(){
         document.querySelector('#player1_2').src = data.cards[1].image
         document.querySelector('#dealer1').src = data.cards[2].image
         document.querySelector('#dealer1_2').src = data.cards[3].image
-        document.querySelector('#showMe').value = Number(data.cards[0].value) + Number(data.cards[1].value)
 
+        function cardValue(val){
+          if(val === "ACE"){
+            return 11
+          }else if (val === "KING"){
+            return 10
+          }else if(val === "QUEEN"){
+            return 10
+          }else if(val === "JACK"){
+            return 10
+          }else{
+            return val
+          }
+        }
 
+        document.querySelector('#showMe').value = Number(cardValue(data.cards[0].value)) + Number(cardValue(data.cards[1].value))
+
+        
 
         // if(val1 + val2 < 21) {
         //   document.querySelector('#score').innerText = val1 + val2
@@ -50,7 +65,7 @@ function getFetch(){
           
           document.querySelector('#hitMeCardOne').src = data.cards[curNum].image
           document.querySelector('#hitMeTwo').classList.toggle('hidden')
-          document.querySelector('#showMe').value = Number(data.cards[0].value) + Number(data.cards[1].value) + Number(data.cards[4].value)
+          document.querySelector('#showMe').value = Number(cardValue(data.cards[0].value)) + Number(cardValue(data.cards[1].value)) + Number(cardValue(data.cards[4].value))
       
           document.querySelector('#hitMe').classList.toggle('hidden')
           return curNum = curNum + 1
@@ -61,6 +76,7 @@ function getFetch(){
         document.querySelector('#hitMeTwo').addEventListener('click', hitMeAgain)
         function hitMeAgain(){
           document.querySelector('#hitMeCardTwo').src = data.cards[curNum].image
+          document.querySelector('#showMe').value = Number(cardValue(data.cards[0].value)) + Number(cardValue(data.cards[1].value)) + Number(cardValue(data.cards[4].value)) + Number(cardValue(data.cards[5].value))
           document.querySelector('#hitMeTwo').classList.toggle('hidden')
           document.querySelector('#hitMeThree').classList.toggle('hidden')
           
@@ -70,6 +86,7 @@ function getFetch(){
         document.querySelector('#hitMeThree').addEventListener('click', hitMeThreeTimes)
         function hitMeThreeTimes(){
           document.querySelector('#hitMeCardThree').src = data.cards[curNum].image
+          document.querySelector('#showMe').value = Number(cardValue(data.cards[0].value)) + Number(cardValue(data.cards[1].value)) + Number(cardValue(data.cards[4].value)) + Number(cardValue(data.cards[5].value)) + Number(cardValue(data.cards[6].value))
           document.querySelector('#hitMeThree').classList.toggle('hidden')
           document.querySelector('#hitMeFour').classList.toggle('hidden')
           return curNum = curNum + 1
@@ -78,6 +95,7 @@ function getFetch(){
         document.querySelector('#hitMeFour').addEventListener('click', hitMeFourTimes)
         function hitMeFourTimes(){
           document.querySelector('#hitMeCardFour').src = data.cards[curNum].image
+          document.querySelector('#showMe').value = Number(cardValue(data.cards[0].value)) + Number(cardValue(data.cards[1].value)) + Number(cardValue(data.cards[4].value)) + Number(cardValue(data.cards[5].value)) + Number(cardValue(data.cards[6].value))  + Number(cardValue(data.cards[7].value))
           document.querySelector('#hitMeFour').classList.toggle('hidden')
           return curNum = curNum + 1
         }
@@ -114,16 +132,16 @@ function getFetch(){
 
 
 
-    // function cardValue(val){
-    //   if(val === "ACE"){
-    //     return 11
-    //   }else if (val === "KING"){
-    //     return 10
-    //   }else if(val === "QUEEN"){
-    //     return 10
-    //   }else if(val === "JACK"){
-    //     return 10
-    //   }else{
-    //     return val
-    //   }
-    // }
+    function cardValue(val){
+      if(val === "ACE"){
+        return 11
+      }else if (val === "KING"){
+        return 10
+      }else if(val === "QUEEN"){
+        return 10
+      }else if(val === "JACK"){
+        return 10
+      }else{
+        return val
+      }
+    }
